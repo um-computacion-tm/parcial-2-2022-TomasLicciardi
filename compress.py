@@ -8,7 +8,7 @@ class Compress():
     def compress(self,texto):
         self.texto = texto
         self.values = {}
-        lista = texto.split() #SEPARANDO LAS PALABRAS POR ESPACIOS Y METO EN UNA LISTA
+        lista = texto.split(" ") #SEPARANDO LAS PALABRAS POR ESPACIOS Y METO EN UNA LISTA
         lista_2 = []
         lista_numeros = [] #ACA ALMACENO LOS INDICES DE CADA PALABRA
         indices = None
@@ -26,8 +26,12 @@ class Compress():
     def uncompress(self,compressed,values):
         lista = compressed
         llaves = list(values.keys())
+        valores = list(values.values())
+        palabra = 0
+        lista_nueva = []
         texto = ""
-        for index in lista:
-            texto = " ".join(llaves)
-            texto = str(texto)
+        for i in lista:
+            palabra = llaves[valores.index(i)]
+            lista_nueva.append(palabra)
+        texto = " ".join(lista_nueva)
         return texto

@@ -71,8 +71,11 @@ def compress(texto):
 # x = compress("TDD o Test-Driven Development (desarrollo dirigido por tests) es una práctica de programación que consiste en escribir primero las pruebas (generalmente unitarias), después escribir el código fuente que pase la prueba satisfactoriamente y, por último, refactorizar el código escrito. Con esta práctica se consigue, entre otras cosas, un código más robusto, más seguro, más mantenible y una mayor rapidez en el desarrollo. En este post voy a centrarme solamente en cómo TDD afecta al diseño de software, si queréis más información, hay una introducción bastante buena en la Wikipedia y Carlos Blé tiene disponible online un libro muy completo. Además, en esta infografía os contamos en qué consiste TDD, en qué principios se basa (SOLID) y cuáles son sus ventajas y desventajas. Y, si quieres profundizar aún más, te recomendamos que le eches un vistazo a TDD, una metodología para gobernarlos a todos y Molecule: desarrollo TDD en Ansible.")
 # print(x)
 
-y = compress("Hola mundo Hola estoy en el parcial de Computacion y de Informatica. Hola mundo Hola")
-print(y)
+# y = compress("""TDD o Test-Driven Development (desarrollo dirigido por tests) es una práctica de programación que consiste en escribir primero las pruebas (generalmente unitarias), después escribir el código fuente que pase la prueba satisfactoriamente y, por último, refactorizar el código escrito.
+# Con esta práctica se consigue, entre otras cosas, un código más robusto, más seguro, más mantenible y una mayor rapidez en el desarrollo.
+# En este post voy a centrarme solamente en cómo TDD afecta al diseño de software, si queréis más información, hay una introducción bastante buena en la Wikipedia y Carlos Blé tiene disponible online un libro muy completo. Además, en esta infografía os contamos en qué consiste TDD, en qué principios se basa (SOLID) y cuáles son sus ventajas y desventajas. Y, si quieres profundizar aún más, te recomendamos que le eches un vistazo a TDD, una metodología para gobernarlos a todos y Molecule: desarrollo TDD en Ansible.""")
+# print(y)
+
 # for x in dicc.keys():
 #     print(x)
 
@@ -84,18 +87,25 @@ print(y)
 # print(lisas)
 # print(saludo.split())
 
+z = compress("Hola Mundo Hola Soy Tomas Hola Mundo Estudio Ingenieria Soy")
+print(z)
 def uncompress(compressed,values):
         lista = compressed
         llaves = list(values.keys())
+        valores = list(values.values())
+        palabra = 0
+        lista_nueva = []
         texto = ""
-        for index in lista:
-            texto = " ".join(llaves)
-            texto = str(texto)
+        for i in lista:
+            palabra = llaves[valores.index(i)]
+            lista_nueva.append(palabra)
+        texto = " ".join(lista_nueva)
         return texto
+            
 
 
-# xd = ["Hola", "Mundo", "Hola"]
+xd = {"Hola":1, "Mundo":2, "!!!":3}
 
-# string = "".join(xd)
-# print(str(string))
+l = uncompress([1, 2, 1, 3, 4, 1, 2, 5, 6, 3], {'Hola': 1, 'Mundo': 2, 'Soy': 3, 'Tomas': 4, 'Estudio': 5, 'Ingenieria': 6})
+print(l)
 
